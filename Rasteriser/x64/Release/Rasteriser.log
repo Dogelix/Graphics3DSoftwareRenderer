@@ -1,0 +1,17 @@
+﻿  BaseLight.cpp
+  Bitmap.cpp
+  Camera.cpp
+  Framework.cpp
+  Matrix.cpp
+  MD2Loader.cpp
+  Model.cpp
+  Polygon3D.cpp
+  Rasteriser.cpp
+Rasteriser.cpp(98): warning C4244: '=': conversion from 'float' to 'LONG', possible loss of data
+Rasteriser.cpp(99): warning C4244: '=': conversion from 'float' to 'LONG', possible loss of data
+  Vector3D.cpp
+  Vertex.cpp
+  Generating code
+  All 416 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+  Finished generating code
+  Rasteriser.vcxproj -> E:\University\Year 2\Graphics 1\Assignment\Graphics3DSoftwareRenderer\x64\Release\Rasteriser.exe

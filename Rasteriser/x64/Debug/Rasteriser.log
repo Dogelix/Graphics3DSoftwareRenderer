@@ -1,0 +1,7 @@
+﻿  Rasteriser.cpp
+d:\university\year 2\graphics 1\assignment\graphics3dsoftwarerenderer\rasteriser\rasteriser.cpp(106): warning C4244: '=': conversion from 'float' to 'LONG', possible loss of data
+d:\university\year 2\graphics 1\assignment\graphics3dsoftwarerenderer\rasteriser\rasteriser.cpp(107): warning C4244: '=': conversion from 'float' to 'LONG', possible loss of data
+d:\university\year 2\graphics 1\assignment\graphics3dsoftwarerenderer\rasteriser\rasteriser.cpp(124): warning C4244: '=': conversion from 'float' to 'LONG', possible loss of data
+d:\university\year 2\graphics 1\assignment\graphics3dsoftwarerenderer\rasteriser\rasteriser.cpp(125): warning C4244: '=': conversion from 'float' to 'LONG', possible loss of data
+  Rasteriser.vcxproj -> D:\University\Year 2\Graphics 1\Assignment\Graphics3DSoftwareRenderer\x64\Debug\Rasteriser.exe
+  Rasteriser.vcxproj -> D:\University\Year 2\Graphics 1\Assignment\Graphics3DSoftwareRenderer\x64\Debug\Rasteriser.pdb (Partial PDB)
