@@ -3,6 +3,7 @@
 #include <windows.h>
 #include <algorithm>
 #include "DirectionalLight.h"
+#include "AmbientLight.h"
 #include "Vertex.h"
 #include "Vector3D.h"
 
@@ -35,6 +36,7 @@ public:
 
 	void SetColor(int r, int g, int b);
 	COLORREF GetColor();
+	void ApplyAmbientLight(std::vector<AmbientLight>& aLight, float refKA[], float refKD[], float refKS[]);
 	void ApplyDirectionalLight(std::vector<DirectionalLight>& dLights, float refKA[], float refKD[], float refKS[]);
 	float MultiplyReflection(float ka, float kd, float ks, float result);
 
@@ -43,5 +45,6 @@ private:
 	float _averageZ;
 	bool _cull = false;
 	Vector3D _normal;
+	int storedR, storedG, storedB;
 	COLORREF _color;
 };

@@ -12,8 +12,9 @@ bool Rasteriser::Initialise()
 		return false;
 	}
 	_cam = Camera(0, 0, 0, Vertex(0.0f, 0.0f, -50.0f, 1.0f));
-	_lights.push_back(DirectionalLight(255, 0, 0, Vector3D(1, 0, 1)));
-	_lights.push_back(DirectionalLight(0, 255, 0, Vector3D(-1, 0, 1)));
+	_aLights.push_back(AmbientLight(255, 255, 255));
+	_dLights.push_back(DirectionalLight(255, 0, 0, Vector3D(1, 0, 1)));
+	_dLights.push_back(DirectionalLight(0, 255, 0, Vector3D(-1, 0, 1)));
 	
 	
 	return true;
@@ -21,8 +22,8 @@ bool Rasteriser::Initialise()
 
 void Rasteriser::Update(Bitmap &bitmap)
 {
-	_rot += 0.1f;
-	_transform = Matrix::XYZRotationMatrix(_rot, _rot, _rot);
+	_rot += 0.01f;
+	_transform = Matrix::YRotationMatrix(_rot);
 	GeneratePerspectiveMatrix(1, (float)bitmap.GetWidth() / (float)bitmap.GetHeight());
 	GenerateViewMatrix(1, bitmap.GetWidth(), bitmap.GetHeight());
 }
@@ -36,7 +37,7 @@ void Rasteriser::Render(Bitmap &bitmap)
 	_model.ApplyTransformToLocalVertices(_transform);
 
 	_model.CalculateBackfaces(_cam.GetCameraPos());
-	_model.CalculateLightingDirectional(_lights);
+	_model.CalculateLighting(_dLights, _aLights);
 
 	_model.ApplyTransformToTransformedVertices(_cam.GetCameraMatrix());
 

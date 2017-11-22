@@ -8,7 +8,7 @@
 #include "Matrix.h"
 #include "Framework.h"
 #include "DirectionalLight.h"
-#include "BaseLight.h"
+#include "AmbientLight.h"
 
 #define POLY_SIZE 3
 #define WHITE RGB(255, 255, 255)
@@ -31,7 +31,8 @@ private:
 	Matrix _perspMatrix, _viewMatrix, _transform;
 	std::vector<Polygon3D> _lPolys;
 	std::vector<Vertex> _lVerts;
-	std::vector<DirectionalLight> _lights;
+	std::vector<DirectionalLight> _dLights;
+	std::vector<AmbientLight> _aLights;
 	const char* _modelDir = "cube.md2";
 	float _rot = 0.01f;
 

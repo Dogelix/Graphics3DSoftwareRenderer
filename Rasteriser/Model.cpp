@@ -88,6 +88,20 @@ void Model::Sort()
 	std::sort(_polygons.begin(), _polygons.end(), [](Polygon3D p1, Polygon3D p2) {return p1.GetAverageZ() > p2.GetAverageZ(); });
 }
 
+void Model::CalculateLighting(std::vector<DirectionalLight>& dList, std::vector<AmbientLight>& aList)
+{
+	CalculateAmbientLighting(aList);
+	CalculateLightingDirectional(dList);
+}
+
+void Model::CalculateAmbientLighting(std::vector<AmbientLight>& aList)
+{
+	for (int i = 0; i < GetPolygonCount(); i++)
+	{
+		_polygons[i].ApplyAmbientLight(aList, refKA, refKD, refKS);
+	}
+}
+
 void Model::CalculateLightingDirectional(std::vector<DirectionalLight> & dList)
 {
 	for (int i = 0; i < GetPolygonCount(); i++)

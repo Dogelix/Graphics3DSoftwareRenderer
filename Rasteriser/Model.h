@@ -6,6 +6,7 @@
 #include "Vertex.h"
 #include "Matrix.h"
 #include "DirectionalLight.h"
+#include "AmbientLight.h"
 
 class Model
 {
@@ -26,9 +27,9 @@ public:
 	void CalculateBackfaces(const Vertex& cam);
 	void Sort();
 
-	void CalculateLightingDirectional(std::vector<DirectionalLight>& dList);
+	void CalculateLighting(std::vector<DirectionalLight>& dList, std::vector<AmbientLight>& aList);
 
-	///0 = R, 1 = G, 2 = B
+	//0 = R, 1 = G, 2 = B
 	void SetKAValues(int index, float value);
 	void SetKDValues(int index, float value);
 	void SetKSValues(int index, float value);
@@ -39,4 +40,7 @@ private:
 	std::vector<Polygon3D> _polygons;
 	std::vector<Vertex> _verticesLocal, _verticesTransformed;
 	float refKA[3], refKD[3], refKS[3];
+
+	void CalculateAmbientLighting(std::vector<AmbientLight> & aList);
+	void CalculateLightingDirectional(std::vector<DirectionalLight>& dList);
 };
