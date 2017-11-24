@@ -78,7 +78,7 @@ float Polygon3D::GetAverageZ()
 	return _averageZ;
 }
 
-void Polygon3D::IsBackface(std::vector<Vertex> verts, Vertex camPos)
+void Polygon3D::IsBackface(std::vector<Vertex> & verts, Vertex camPos)
 {
 	CalculateNormal(verts);
 
@@ -89,7 +89,7 @@ void Polygon3D::IsBackface(std::vector<Vertex> verts, Vertex camPos)
 	_cull = result < 0;
 }
 
-void Polygon3D::CalculateNormal(std::vector<Vertex> verts)
+void Polygon3D::CalculateNormal(std::vector<Vertex> & verts)
 {
 	Vector3D a = verts[_indices[1]] - verts[_indices[0]];
 	Vector3D b = verts[_indices[2]] - verts[_indices[0]];
@@ -135,24 +135,23 @@ COLORREF Polygon3D::GetColor()
 	return _color;
 }
 
-void Polygon3D::ApplyAmbientLight(std::vector<AmbientLight>& aLight, float refKA[], float refKD[], float refKS[])
+void Polygon3D::ApplyAmbientLight(AmbientLight & aLight, float refKA[], float refKD[], float refKS[])
 {
 	SetColor(0, 0, 0); //Reset to Black
 	float totalR = 0, totalG = 0, totalB = 0, tempR, tempG, tempB;
 
-	for (int i = 0; i < aLight.size(); i++)
-	{
-		tempR = aLight[i].GetRVal();
-		tempG = aLight[i].GetGVal();
-		tempB = aLight[i].GetBVal();
-		tempR = MultiplyReflection(refKA[0], refKD[0], refKS[0], tempR);
-		tempG = MultiplyReflection(refKA[1], refKD[1], refKS[1], tempG);
-		tempB = MultiplyReflection(refKA[2], refKD[2], refKS[2], tempB);
+	tempR = aLight.GetRVal();
+	tempG = aLight.GetGVal();
+	tempB = aLight.GetBVal();
+	tempR = MultiplyReflection(refKA[0], refKD[0], refKS[0], tempR);
+	tempG = MultiplyReflection(refKA[1], refKD[1], refKS[1], tempG);
+	tempB = MultiplyReflection(refKA[2], refKD[2], refKS[2], tempB);
 
-		totalR += tempR;
-		totalG += tempG;
-		totalB += tempB;
-	}
+	totalR += tempR;
+	totalG += tempG;
+	totalB += tempB;
+
+	SetColor(totalR, totalG, totalB);
 }
 
 void Polygon3D::ApplyDirectionalLight(std::vector<DirectionalLight> & dLights, float refKA[], float refKD[], float refKS[])
@@ -163,7 +162,7 @@ void Polygon3D::ApplyDirectionalLight(std::vector<DirectionalLight> & dLights, f
 	for(int i = 0; i < dLights.size(); i++)
 	{
 		tempR = dLights[i].GetRVal() + storedR;
-		tempG = dLights[i].GetGVal() + storedG;
+		tempG = dLights[i].GetGVal() + storedB;
 		tempB = dLights[i].GetBVal() + storedB;
 		tempR = MultiplyReflection(refKA[0], refKD[0], refKS[0], tempR);
 		tempG = MultiplyReflection(refKA[1], refKD[1], refKS[1], tempG);
@@ -178,6 +177,7 @@ void Polygon3D::ApplyDirectionalLight(std::vector<DirectionalLight> & dLights, f
 		totalG += tempG;
 		totalB += tempB;
 	}
+
 	SetColor(totalR, totalG, totalB);
 }
 

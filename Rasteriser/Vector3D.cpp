@@ -24,7 +24,6 @@ Vector3D::Vector3D(float x, float y, float z)
 	_x = x;
 	_y = y;
 	_z = z;
-	_length = CalculateLength();
 }
 
 Vector3D & Vector3D::operator+(Vector3D & rhs)
@@ -51,9 +50,19 @@ Vector3D Vector3D::CrossProduct(Vector3D & v1, Vector3D & v2)
 
 void Vector3D::Normalise()
 {
-	_x /= _length;
-	_y /= _length;
-	_z /= _length;
+	if (_length == NAN) 
+	{
+		_x /= CalculateLength();
+		_y /= CalculateLength();
+		_z /= CalculateLength();
+	}
+	else 
+	{
+		_x /= CalculateLength();
+		_y /= CalculateLength();
+		_z /= CalculateLength();;
+	}
+	
 }
 
 //Copy method
@@ -71,7 +80,7 @@ Vector3D & Vector3D::Copy(Vector3D & rhs)
 
 float Vector3D::CalculateLength()
 {
-	return (float) sqrt( pow(_x, 2) + pow(_y, 2) + pow(_z, 2) );
+	return (float) sqrt( (_x * _x) + (_y * _y) + (_z * _z) );
 }
 
 float Vector3D::GetX()
@@ -91,5 +100,9 @@ float Vector3D::GetZ()
 
 float Vector3D::GetLength()
 {
+	if (_length == NAN)
+	{
+		_length = CalculateLength();
+	}
 	return _length;
 }

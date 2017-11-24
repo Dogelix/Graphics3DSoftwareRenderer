@@ -27,5 +27,6 @@ class Vector3D
 		float GetLength();
 		
 	private:
-		float _x, _y, _z, _length;
+		float _x, _y, _z;
+		float _length = NAN;
 };

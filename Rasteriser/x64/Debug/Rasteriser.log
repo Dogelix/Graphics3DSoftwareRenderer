@@ -1,7 +1,4 @@
-﻿  Rasteriser.cpp
-d:\university\year 2\graphics 1\assignment\graphics3dsoftwarerenderergit\rasteriser\rasteriser.cpp(107): warning C4244: '=': conversion from 'float' to 'LONG', possible loss of data
-d:\university\year 2\graphics 1\assignment\graphics3dsoftwarerenderergit\rasteriser\rasteriser.cpp(108): warning C4244: '=': conversion from 'float' to 'LONG', possible loss of data
-d:\university\year 2\graphics 1\assignment\graphics3dsoftwarerenderergit\rasteriser\rasteriser.cpp(125): warning C4244: '=': conversion from 'float' to 'LONG', possible loss of data
-d:\university\year 2\graphics 1\assignment\graphics3dsoftwarerenderergit\rasteriser\rasteriser.cpp(126): warning C4244: '=': conversion from 'float' to 'LONG', possible loss of data
-  Rasteriser.vcxproj -> D:\University\Year 2\Graphics 1\Assignment\Graphics3DSoftwareRendererGIT\x64\Debug\Rasteriser.exe
-  Rasteriser.vcxproj -> D:\University\Year 2\Graphics 1\Assignment\Graphics3DSoftwareRendererGIT\x64\Debug\Rasteriser.pdb (Partial PDB)
+﻿  Vector3D.cpp
+e:\university\year 2\graphics 1\assignment\graphics3dsoftwarerenderer\rasteriser\vector3d.cpp(31): warning C4172: returning address of local variable or temporary
+  Rasteriser.vcxproj -> E:\University\Year 2\Graphics 1\Assignment\Graphics3DSoftwareRenderer\x64\Debug\Rasteriser.exe
+  Rasteriser.vcxproj -> E:\University\Year 2\Graphics 1\Assignment\Graphics3DSoftwareRenderer\x64\Debug\Rasteriser.pdb (Partial PDB)

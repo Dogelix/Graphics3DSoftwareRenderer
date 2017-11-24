@@ -31,12 +31,12 @@ public:
 	void SetAverageZ(std::vector<Vertex>& verts);
 	float GetAverageZ();
 
-	void IsBackface(std::vector<Vertex> verts, Vertex camPos);
-	void CalculateNormal(std::vector<Vertex> verts);
+	void IsBackface(std::vector<Vertex>& verts, Vertex camPos);
+	void CalculateNormal(std::vector<Vertex>& verts);
 
 	void SetColor(int r, int g, int b);
 	COLORREF GetColor();
-	void ApplyAmbientLight(std::vector<AmbientLight>& aLight, float refKA[], float refKD[], float refKS[]);
+	void ApplyAmbientLight(AmbientLight & aLight, float refKA[], float refKD[], float refKS[]);
 	void ApplyDirectionalLight(std::vector<DirectionalLight>& dLights, float refKA[], float refKD[], float refKS[]);
 	float MultiplyReflection(float ka, float kd, float ks, float result);
 

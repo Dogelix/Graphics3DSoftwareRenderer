@@ -32,8 +32,8 @@ private:
 	std::vector<Polygon3D> _lPolys;
 	std::vector<Vertex> _lVerts;
 	std::vector<DirectionalLight> _dLights;
-	std::vector<AmbientLight> _aLights;
-	const char* _modelDir = "cube.md2";
+	AmbientLight _aLight;
+	const char* _modelDir = "teapot.md2";
 	float _rot = 0.01f;
 
 	//Methods

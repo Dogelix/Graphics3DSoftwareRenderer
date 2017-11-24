@@ -27,7 +27,7 @@ public:
 	void CalculateBackfaces(const Vertex& cam);
 	void Sort();
 
-	void CalculateLighting(std::vector<DirectionalLight>& dList, std::vector<AmbientLight>& aList);
+	void CalculateLighting(std::vector<DirectionalLight>& dList, AmbientLight & aLight);
 
 	//0 = R, 1 = G, 2 = B
 	void SetKAValues(int index, float value);
@@ -41,6 +41,6 @@ private:
 	std::vector<Vertex> _verticesLocal, _verticesTransformed;
 	float refKA[3], refKD[3], refKS[3];
 
-	void CalculateAmbientLighting(std::vector<AmbientLight> & aList);
+	void CalculateAmbientLighting(AmbientLight & aLight);
 	void CalculateLightingDirectional(std::vector<DirectionalLight>& dList);
 };
